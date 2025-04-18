@@ -41,7 +41,7 @@ app = FastAPI()
 origins = [
     "http://localhost:3000",
     "http://localhost:5173",
-    "https://todo-app-fastapi-react-git-main-arielll74s-projects.vercel.app/", 
+    "https://todo-app-fastapi-react-ussc-git-main-arielll74s-projects.vercel.app/", 
     "https://todo-app-fastapi-0lea.onrender.com",
 ]
 
