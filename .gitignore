@@ -1,0 +1,53 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Output of build tools
+dist
+build
+public/build
+public/hot
+
+# Node modules
+node_modules
+
+# IDEs and editors
+.idea
+.project
+.classpath
+.c9/
+*.launch
+*.secret
+.settings/
+
+# Package lock file - important to keep!
+# but you might choose to ignore it if consistency isn't critical
+# package-lock.json
+# yarn.lock
+
+# Temporary files
+tmp
+temp
+.tmp
+
+# Various environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+coverage
+
+# Optional: Ignore build output in the public directory for static hosting
+# If your final build goes into the root or a different directory, adjust accordingly
+# public/build/* 
