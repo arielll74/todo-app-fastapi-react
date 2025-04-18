@@ -8,7 +8,7 @@ from typing import List
 from fastapi.middleware.cors import CORSMiddleware
 import os
 
-DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite+aiosqlite:///./todos.db")
+DATABASE_URL = os.environ.get("DATABASE_URL", "postgresql+asyncpg://user:password@host:port/database")
 engine = create_async_engine(DATABASE_URL, echo=True)
 Base = declarative_base()
 
