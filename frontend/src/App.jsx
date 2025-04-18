@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
-const API_URL = process.env.REACT_APP_API_URL || 'https://todo-app-fastapi-react-vite.onrender.com/todos/';
+const API_URL = process.env.REACT_APP_API_URL || 'https://todo-app-fastapi-0lea.onrender.com/todos/';
 
 function App() {
     const [tasks, setTasks] = useState([]);
