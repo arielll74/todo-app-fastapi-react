@@ -1,3 +1,4 @@
+
 from fastapi import FastAPI, HTTPException, Depends
 from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
@@ -5,8 +6,9 @@ from sqlalchemy import Column, Integer, String, Boolean, select
 from sqlalchemy.ext.declarative import declarative_base
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
-DATABASE_URL = "sqlite+aiosqlite:///./todos.db"
+DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite+aiosqlite:///./todos.db")
 engine = create_async_engine(DATABASE_URL, echo=True)
 Base = declarative_base()
 
@@ -37,9 +39,10 @@ app = FastAPI()
 
 # CORS Middleware
 origins = [
-    "http://localhost:3000",  # If you were using this before
-    "http://localhost:5173",  # Your current frontend address
-    # Add your deployed frontend URL here when you deploy
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "YOhttps://todo-app-fastapi-react-ussc-git-main-arielll74s-projects.vercel.app/", 
+    "https://todo-app-fastapi-react-vite.onrender.com",
 ]
 
 app.add_middleware(
