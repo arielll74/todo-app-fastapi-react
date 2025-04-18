@@ -1,9 +1,9 @@
-// src/App.jsx
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 
-const API_URL = 'http://localhost:8000/todos/'; // Ensure trailing slash!
+const API_URL = process.env.REACT_APP_API_URL || 'https://todo-app-fastapi-react-vite.onrender.com/todos/';
 
 function App() {
     const [tasks, setTasks] = useState([]);
@@ -17,7 +17,7 @@ function App() {
 
     useEffect(() => {
         fetchTasks();
-    }, [filter]); // Fetch when filter changes
+    }, [filter]); 
 
     const fetchTasks = async () => {
         setLoading(true);
@@ -54,7 +54,7 @@ function App() {
 
     const deleteTask = async (id) => {
         try {
-            await axios.delete(`${API_URL}${id}`); // No trailing slash here
+            await axios.delete(`${API_URL}${id}`); 
             setTasks(tasks.filter(task => task.id !== id));
         } catch (err) {
             console.error("Delete Task Error:", err);
@@ -70,7 +70,7 @@ function App() {
     const updateTask = async () => {
         if (!editTask || !editedTaskText.trim()) return;
         try {
-            const response = await axios.put(`${API_URL}${editTask.id}`, { // No trailing slash here
+            const response = await axios.put(`${API_URL}${editTask.id}`, { 
                 title: editedTaskText,
                 completed: editTask.completed,
             });
@@ -87,7 +87,7 @@ function App() {
 
     const toggleComplete = async (taskToUpdate) => {
         try {
-            const response = await axios.put(`${API_URL}${taskToUpdate.id}`, { // No trailing slash here
+            const response = await axios.put(`${API_URL}${taskToUpdate.id}`, { 
                 title: taskToUpdate.title,
                 completed: !taskToUpdate.completed,
             });
